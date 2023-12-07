@@ -1,0 +1,3 @@
+return {
+  { "brandonbloom/vim-factor" },
+}
