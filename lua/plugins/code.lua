@@ -36,7 +36,7 @@ return {
         name = "pytest tests/unit",
         python = "./.venv/bin/python",
         module = "pytest",
-        args = { "-n", "auto", "tests/unit" },
+        args = { "tests/unit" },
         -- ... more options, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings
       })
     end,
