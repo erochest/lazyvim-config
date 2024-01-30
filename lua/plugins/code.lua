@@ -41,4 +41,10 @@ return {
       })
     end,
   },
+
+  { "NoahTheDuke/vim-just" },
+  {
+    "IndianBoy42/tree-sitter-just",
+    dependencies = { "NoahTheDuke/vim-just" },
+  },
 }
