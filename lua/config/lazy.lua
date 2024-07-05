@@ -15,7 +15,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.symbols-outline" },
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.editor.aerial" },
-    { import = "lazyvim.plugins.extras.formatting.black" },
+    -- { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.python" },
