@@ -58,4 +58,5 @@ return {
   },
 
   { "NoahTheDuke/vim-just" },
+  { "nvim-java/nvim-java" },
 }
