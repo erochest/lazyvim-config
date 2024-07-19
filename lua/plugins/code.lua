@@ -1,25 +1,25 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "html",
-        "javascript",
-        "json",
-        "kotlin",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "tsx",
-        "typescript",
-        "vim",
-        "yaml",
-      },
-    },
+    -- opts = {
+    --   ensure_installed = {
+    --     "bash",
+    --     "html",
+    --     "javascript",
+    --     "json",
+    --     "kotlin",
+    --     "lua",
+    --     "markdown",
+    --     "markdown_inline",
+    --     "python",
+    --     "query",
+    --     "regex",
+    --     "tsx",
+    --     "typescript",
+    --     "vim",
+    --     "yaml",
+    --   },
+    -- },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
       local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
