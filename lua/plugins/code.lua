@@ -60,4 +60,12 @@ return {
   { "NoahTheDuke/vim-just" },
   { "nvim-java/nvim-java" },
   { "folke/neoconf.nvim" },
+
+  {
+    "julienvincent/hunk.nvim",
+    cmd = { "DiffEditor" },
+    config = function()
+      require("hunk").setup()
+    end,
+  },
 }
