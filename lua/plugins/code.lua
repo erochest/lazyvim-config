@@ -61,11 +61,30 @@ return {
   { "nvim-java/nvim-java" },
   { "folke/neoconf.nvim" },
 
+  -- {
+  --   "julienvincent/hunk.nvim",
+  --   cmd = { "DiffEditor" },
+  --   config = function()
+  --     require("hunk").setup()
+  --   end,
+  -- },
+
+  { "rafikdraoui/jj-diffconflicts" },
+  { "avm99963/vim-jjdescription" },
   {
-    "julienvincent/hunk.nvim",
-    cmd = { "DiffEditor" },
+    "willothy/flatten.nvim",
+    config = true,
+    -- or pass configuration with
+    -- opts = {  }
+    -- Ensure that it runs first to minimize delay when opening file from terminal
+    lazy = false,
+    priority = 1001,
+  },
+  {
+    "zschreur/telescope-jj.nvim",
     config = function()
-      require("hunk").setup()
+      local telescope = require("telescope")
+      telescope.load_extension("jj")
     end,
   },
 }
