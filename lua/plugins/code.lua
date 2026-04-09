@@ -120,4 +120,11 @@ return {
       },
     },
   },
+
+  {
+    "syaiful6/koka.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
 }
