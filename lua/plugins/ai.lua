@@ -13,7 +13,17 @@ return {
       adapters = {
         acp = {
           claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {})
+            return require("codecompanion.adapters").extend("claude_code", {
+              commands = {
+                default = {
+                  "/Users/ericrochester/Library/pnpm/bin/claude-agent-acp",
+                },
+              },
+              env = {
+                -- CLAUDE_CODE_OAUTH_TOKEN = "cmd:op --account my.1password.com read op://Private/aafro6dwlvclx4y2s6jfvd2tue/credential --no-newline",
+                CLAUDE_CODE_OAUTH_TOKEN = "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",
+              },
+            })
           end,
         },
         http = {
@@ -66,6 +76,31 @@ return {
           },
         },
       },
+    },
+  },
+
+  {
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
+    keys = {
+      { "<leader>a", nil, desc = "AI/Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
+      },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
   },
 }
