@@ -10,6 +10,7 @@ return {
     ---@type obsidian.config
     opts = {
       legacy_commands = false, -- this will be removed in 4.0.0
+      -- TODO: keybindings
       -- TODO: how to have this local to the machine
       workspaces = {
         {
