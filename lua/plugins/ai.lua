@@ -13,13 +13,7 @@ return {
       adapters = {
         acp = {
           claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {
-              env = {
-                ANTHROPIC_BASE_URL = "https://api.fuelix.ai",
-                ANTHROPIC_AUTH_TOKEN = "cmd:op --account my.1password.com read 'op://Private/tsadcgixxpof4yapxdrue2nzzi/credential' --no-newline",
-                ANTHROPIC_MODEL = "claude-sonnet-4-5",
-              },
-            })
+            return require("codecompanion.adapters").extend("claude_code", {})
           end,
         },
         http = {
