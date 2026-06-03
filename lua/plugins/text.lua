@@ -10,7 +10,6 @@ return {
     ---@type obsidian.config
     opts = {
       legacy_commands = false, -- this will be removed in 4.0.0
-      -- TODO: keybindings
       -- TODO: how to have this local to the machine
       workspaces = {
         {
@@ -36,6 +35,31 @@ return {
         -- name = "fzf-lua", -- or fzf-lua
         -- name = "mini.pick",   -- or mini.pick
       },
+    },
+    keys = {
+      -- TODO: better prefix than o (clash with overseer)
+      { "<leader>od", "<cmd>Obsidian dailies<cr>", desc = "Obsidian Dailies Picker" },
+      {
+        "<leader>on",
+        function()
+          vim.ui.input({ prompt = "Note title: " }, function(input)
+            if input == nil or input == "" then
+              return
+            end
+            -- TODO: Obsidian new TITLE
+          end)
+        end,
+        desc = "Obsidian Dailies Picker",
+      },
+      { "<leader>oq", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
+      { "<leader>ot", "<cmd>Obsidian today<cr>", desc = "Obsidian Today" },
+      -- TODO: Obsidian open QUERY
+      -- TODO: Obsidian new_from_template TITLE TEMPLATE
+      -- TODO: Obsidian search QUERY
+      -- TODO: Obsidian tags TAG..
+      -- TODO: Obsidian unique_note TITLE
+      -- TODO: Obsidian workspace NAME
+      -- TODO: keys from https://github.com/obsidian-nvim/obsidian.nvim#note-commands
     },
   },
 }

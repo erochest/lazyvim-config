@@ -1,9 +1,32 @@
 return {
-  "jceb/jiejie.nvim",
+  {
+    "jceb/jiejie.nvim",
+    dependencies = {
+      {
+        "folke/which-key.nvim",
+        optional = true,
+        opts = {
+          spec = {
+            { "<leader>j", group = "Jujutsu" },
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>jl", "<cmd>JJ<cr>", desc = "Show the log" },
+      { "<leader>jo", "<cmd>J oplog<cr>", desc = "Show the operation log" },
+      { "<leader>jq", "<cmd>JcLog<cr>", desc = "Quickfix log" },
+    },
+  },
   "evanphx/jjsigns.nvim",
   {
     "julienvincent/hunk.nvim",
     cmd = { "DiffEditor" },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "nvim-mini/mini.icons",
+    },
     config = function()
       require("hunk").setup()
     end,
