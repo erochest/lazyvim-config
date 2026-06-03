@@ -14,13 +14,21 @@ return {
       -- TODO: how to have this local to the machine
       workspaces = {
         {
-          name = "lap-notes",
+          name = "lab-notes",
           path = "~/w/lab-notes",
         },
-        -- {
-        --   name = "work",
-        --   path = "~/vaults/work",
-        -- },
+        {
+          name = "writing",
+          path = "~/Dropbox/n/writing/",
+        },
+        {
+          name = "clutter",
+          path = "~/Dropbox/n/clutter/",
+        },
+        {
+          name = "Scrivenings",
+          path = "~/Dropbox/n/Scrivenings/",
+        },
       },
       picker = {
         -- name = "snacks.picker", -- use snacks picker
