@@ -31,9 +31,9 @@ return {
         },
       },
       picker = {
-        -- name = "snacks.picker", -- use snacks picker
+        name = "snacks.picker", -- use snacks picker
         -- name = "telescope.nvim",   -- or telescope
-        name = "fzf-lua", -- or fzf-lua
+        -- name = "fzf-lua", -- or fzf-lua
         -- name = "mini.pick",   -- or mini.pick
       },
     },
