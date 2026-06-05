@@ -36,8 +36,18 @@ return {
         -- name = "mini.pick",   -- or mini.pick
       },
     },
+    dependencies = {
+      {
+        "folke/which-key.nvim",
+        optional = true,
+        opts = {
+          spec = {
+            { "<leader>o", group = "Obsidian" },
+          },
+        },
+      },
+    },
     keys = {
-      -- TODO: better prefix than o (clash with overseer)
       { "<leader>od", "<cmd>Obsidian dailies<cr>", desc = "Obsidian Dailies Picker" },
       {
         "<leader>on",
