@@ -86,18 +86,61 @@ return {
   --   },
   -- },
 
-  {
-    "nsidorenco/neotest-vstest",
-  },
+  -- {
+  --   "nsidorenco/neotest-vstest",
+  -- },
+
+  -- Add neotest and the neotest-haskell adapter
   {
     "nvim-neotest/neotest",
-    optional = true,
-    opts = {
-      adapters = {
-        ["nsidorenco/neotest-vstest"] = {},
-      },
+    dependencies = {
+      "mrcjkb/neotest-haskell",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
     },
+    opts = function(_, opts)
+      local hs = require("neotest-haskell")
+      table.insert(opts.adapters, {
+        require("neotest-haskell")({
+          -- Default: Use stack if possible and then try cabal
+          build_tools = { "stack", "cabal" },
+          -- Default: Check for tasty first and then try hspec
+          frameworks = { "tasty", "hspec", "sydtest" },
+        }),
+      })
+    end,
   },
+  {
+    "nvim-treesitter",
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "haskell" })
+      end
+    end,
+  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   dependencies = {
+  --     "nvim-neotest/plenary.nvim",
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "mrcjkb/neotest-haskell",
+  --   },
+  -- },
+  --
+  -- {
+  --   "nvim-neotest/neotest",
+  --   optional = true,
+  --   opts = {
+  --     adapters = {
+  --       []
+  --   require("neotest-haskell")({
+  --     -- Specify the build tool if necessary (usually detected automatically)
+  --     build_tool = "stack",
+  --   }),
+  --       -- ["nsidorenco/neotest-vstest"] = {},
+  --     },
+  --   },
+  -- },
 
   {
     "syaiful6/koka.nvim",
