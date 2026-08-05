@@ -20,7 +20,6 @@ return {
     "hamidi-dev/org-super-agenda.nvim",
     dependencies = {
       "nvim-orgmode/orgmode", -- required
-      { "lukas-reineke/headlines.nvim", config = true }, -- optional nicety
     },
     config = function()
       require("org-super-agenda").setup({
@@ -244,12 +243,6 @@ return {
     "seflue/org-link.nvim",
     event = "VeryLazy",
     opts = {},
-  },
-
-  {
-    "lukas-reineke/headlines.nvim",
-    dependencies = "nvim-treesitter/nvim-treesitter",
-    config = true, -- or `opts = {}`
   },
 
   -- TODO: org-modern
