@@ -10,6 +10,11 @@ return {
       require("orgmode").setup({
         org_agenda_files = org_agenda_files,
         org_default_notes_file = org_default_notes_file,
+        org_capture_templates = {
+          t = { description = "Task", template = "* TODO %?\n %u" },
+          l = { description = "Log", template = "* %T %?\n" },
+          L = { description = "Log (prompt for time)", template = "* %^T %?\n" },
+        },
       })
       -- Experimental LSP support
       vim.lsp.enable("org")
