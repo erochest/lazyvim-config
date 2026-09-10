@@ -1,6 +1,6 @@
-local org_directory = "~/Dropbox/org/"
-local org_agenda_files = org_directory .. "**/*"
-local org_default_notes_file = org_directory .. "inbox.org"
+local org_directory = "~/Dropbox/o/"
+local org_agenda_files = org_directory .. "*"
+local org_default_notes_file = org_directory .. "daily.org"
 
 return {
   {
@@ -15,6 +15,16 @@ return {
           l = { description = "Log", template = "* %T %?\n" },
           L = { description = "Log (prompt for time)", template = "* %^T %?\n" },
         },
+        org_todo_keywords = {
+          "BACKLOG(b)",
+          "TODO(t)",
+          "PROGRESS(p)",
+          "WAITING(w)",
+          "|",
+          "DONE(d)",
+          "CANCELED(c)",
+        },
+        org_blank_before_new_entry = { heading = false, plain_list_item = false },
       })
       -- Experimental LSP support
       vim.lsp.enable("org")
@@ -39,36 +49,50 @@ return {
         -- defaults {{{
         -- TODO states + their quick filter keymaps and highlighting
         -- Optional: add `shortcut` field to override the default key (first letter)
-        -- todo_states = {
-        --   {
-        --     name = "TODO",
-        --     keymap = "ot",
-        --     color = "#FF5555",
-        --     strike_through = false,
-        --     fields = { "filename", "todo", "headline", "priority", "date", "tags" },
-        --   },
-        --   {
-        --     name = "PROGRESS",
-        --     keymap = "op",
-        --     color = "#FFAA00",
-        --     strike_through = false,
-        --     fields = { "filename", "todo", "headline", "priority", "date", "tags" },
-        --   },
-        --   {
-        --     name = "WAITING",
-        --     keymap = "ow",
-        --     color = "#BD93F9",
-        --     strike_through = false,
-        --     fields = { "filename", "todo", "headline", "priority", "date", "tags" },
-        --   },
-        --   {
-        --     name = "DONE",
-        --     keymap = "od",
-        --     color = "#50FA7B",
-        --     strike_through = true,
-        --     fields = { "filename", "todo", "headline", "priority", "date", "tags" },
-        --   },
-        -- },
+        todo_states = {
+          {
+            name = "BACKLOG",
+            keymap = "ob",
+            color = "#CCCCCC",
+            strike_through = false,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+          {
+            name = "TODO",
+            keymap = "ot",
+            color = "#FF5555",
+            strike_through = false,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+          {
+            name = "PROGRESS",
+            keymap = "op",
+            color = "#FFAA00",
+            strike_through = false,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+          {
+            name = "WAITING",
+            keymap = "ow",
+            color = "#BD93F9",
+            strike_through = false,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+          {
+            name = "DONE",
+            keymap = "od",
+            color = "#50FA7B",
+            strike_through = true,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+          {
+            name = "CANCELED",
+            keymap = "od",
+            color = "#444444",
+            strike_through = true,
+            fields = { "filename", "todo", "headline", "priority", "date", "tags" },
+          },
+        },
 
         -- Agenda keymaps (inline comments explain each)
         -- keymaps = {
