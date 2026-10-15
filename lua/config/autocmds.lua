@@ -8,3 +8,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     vim.lsp.enable("forth")
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  callback = function(args)
+    vim.diagnostic.config({ virtual_text = false, signs = false }, args.buf)
+  end,
+})
